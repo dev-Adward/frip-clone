@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마이페이지 수정하기</title>
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/mypage/mypageUpdate.css" />
+    <link rel="stylesheet" href="/css/mypage/modal.css" />
+    <link rel="stylesheet" href="/css/main/common.css" />
+    <link rel="stylesheet" href="/css/main/header.css">
+    <link rel="stylesheet" href="/css/main/footer.css">
+    <link
+      href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    body {
+      font-family: 'SUIT Variable', sans-serif;
+    }
+  </style>
+  <body>
+  <div th:insert="~{/main/header :: header}"></div>
+    <main id="mypageUpdate">
+      <div class="modal">
+        <div class="warn-modal">
+          <div class="modal-content"></div>
+        </div>
+      </div>
+      <section class="mypageUpdate-header-wrap">
+        <article class="mypageUpdate-header">
+          <h1 class="mypageUpdate-header-text">내 정보</h1>
+          <button type="button" class="save-button">저장</button>
+        </article>
+      </section>
+      <section class="mypageUpdate-main-wrap">
+        <article class="mypageUpdate-main">
+        </article>
+        <form name="" action="" class="update-user-info" autocomplete="off" method="post">
+          <div class="update-user-wrap">
+            <div>
+              <input type="hidden" name="memberId" th:value="${members.memberId}">
+              <label class="update-user-text">닉네임</label>
+              <div class="update-user-nickname">
+                <input
+                  disabled=""
+                  id="memberNickname"
+                  name="memberNickname"
+                  class="update-user-value change-value"
+                  th:value="${members.memberNickname}"
+                />
+                <p class="warn-text"></p>
+              </div>
+            </div>
+            <div class="update-user-change">
+              <button type="button" class="change-button">변경하기</button>
+            </div>
+          </div>
+          <div class="update-user-wrap">
+            <div>
+              <label class="update-user-text">휴대폰 번호</label>
+              <div class="update-user">
+                <input
+                  disabled=""
+                  name="memberPhone"
+                  class="update-user-value"
+                  th:value="${members.memberPhone}"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="update-user-wrap">
+            <div>
+              <label class="update-user-text">이메일</label>
+              <div class="update-user">
+                <input
+                  disabled=""
+                  id="memberEmail"
+                  name="memberEmail"
+                  class="update-user-value"
+                  th:value="${members.memberEmail}"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="update-user-wrap">
+            <div>
+              <label class="update-user-text">비밀번호</label>
+              <div class="update-user">
+                <input
+                  type="password"
+                  disabled=""
+                  name="memberPassword"
+                  class="update-user-value"
+                  value="0000000"
+                />
+              </div>
+            </div>
+            <div class="update-user-change">
+              <button type="button" class="go-change-button">변경하기</button>
+            </div>
+          </div>
+          <div class="update-user-wrap">
+            <div>
+              <label class="update-user-text">생년월일</label>
+              <div class="update-user">
+                <input
+                  disabled=""
+                  id="memberBirth"
+                  name="memberBirth"
+                  class="update-user-value change-value"
+                  th:value="${members.memberBirth}"
+                />
+                <p class="warn-text"></p>
+              </div>
+            </div>
+           <!-- <div class="update-user-change">
+              <button type="button" class="change-button">변경하기</button>
+            </div>-->
+          </div>
+          <div class="update-user-wrap">
+            <div>
+              <label class="update-user-text">성별</label>
+              <div class="update-user">
+                <input disabled="" name="memberGender" class="update-user-value" th:value="${members.memberGender == '남'? '남자' : '여자'}" />
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+  <div th:insert="~{/main/footer :: footer}"></div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+  <script th:inline="javascript">
+    let members = [[${members}]]
+  </script>
+  <script src="/js/mypage/mypageUpdateSetting.js"></script>
+  <script src="/js/mypage/mypageUpdate.js"></script>
+  <script src="/js/main/header.js"></script>
+</html>
